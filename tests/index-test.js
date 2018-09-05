@@ -1,23 +1,31 @@
-import expect from 'expect'
-import React from 'react'
-import {render, unmountComponentAtNode} from 'react-dom'
+import expect from 'expect';
+import React from 'react';
+import { render, unmountComponentAtNode } from 'react-dom';
 
-import Component from 'src/'
+import FilterResults from 'src/';
 
-describe('Component', () => {
-  let node
+describe('FilterResults', () => {
+  let node;
 
   beforeEach(() => {
-    node = document.createElement('div')
-  })
+    node = document.createElement('div');
+  });
 
   afterEach(() => {
-    unmountComponentAtNode(node)
-  })
+    unmountComponentAtNode(node);
+  });
 
-  it('displays a welcome message', () => {
-    render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('Welcome to React components')
-    })
-  })
-})
+  it('renders without crashing', () => {
+    render(
+      <FilterResults
+        value={''}
+        data={[{ name: 'Joe' }]}
+        renderResults={results => results.map((el, i) => <span key={i}>{el.name}</span>)}
+      />,
+      node,
+      () => {
+        expect(node);
+      }
+    );
+  });
+});
