@@ -15,6 +15,12 @@ This is a small, unobtrusive React component for filtering client-side applicati
 [coveralls-badge]: https://img.shields.io/coveralls/joehdodd/react-filter-search/master.png?style=flat-square
 [coveralls]: https://coveralls.io/github/joehdodd/react-filter-search
 
+## Installation
+
+`npm i react-filter-search`
+
+`yarn add react-filter-search`
+
 ## Usage
 
 React Filter Search is simply a component that requires data in application state (needs to be an `array` of `object`s and an input value. In turn, you'll get back...
