@@ -38,7 +38,7 @@ class Demo extends Component {
             data={data}
             renderResults={results => (
               <div
-                style={{ display: 'grid', gridGap: '4px', marginTop: '16px' }}
+                style={{ marginTop: '16px' }}
               >
                 {results.map(el => (
                   <div
@@ -47,7 +47,9 @@ class Demo extends Component {
                       marginBottom: '8px',
                       borderRadius: '4px',
                       padding: '16px',
-                      maxWidth: '250px'
+                      maxWidth: '250px',
+                      maxHeight: '150px',
+                      alignSelf: 'start'
                     }}
                   >
                     <span>{el.name}</span>

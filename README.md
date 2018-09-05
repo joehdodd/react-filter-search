@@ -1,4 +1,4 @@
-# react-search-filter
+# react-filter-search
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]

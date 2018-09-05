@@ -1,7 +1,7 @@
 {
-  "name": "react-search-filter",
+  "name": "react-filter-search",
   "version": "1.0.0",
-  "description": "react-search-filter React component",
+  "description": "react-filter-search React component",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
