@@ -6,13 +6,15 @@ function strOp(str) {
 }
 
 function objectValues(value) {
-  return Object.values(value).reduce(
-    (string, val) =>
+  return Object.values(value).reduce((string, val) => {
+    const test = val !== null && val !== undefined;
+    return (
       string +
       (typeof val === 'object' && val !== null
         ? strOp(objectValues(val))
-        : strOp(val))
-  );
+        : test ? strOp(val) : '')
+    );
+  }, '');
 }
 
 export function filter(val, data) {
