@@ -1,15 +1,18 @@
 import expect from 'expect';
 import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-
 import FilterResults from 'src/';
-import { data } from './mock';
+// import { data } from './mock';
+import 'whatwg-fetch';
 
 describe('FilterResults', () => {
   let node;
-
-  beforeEach(() => {
+  let data;
+  beforeEach(async () => {
     node = document.createElement('div');
+    data = await fetch('https://www.reddit.com/r/pics.json')
+      .then(response => response.json())
+      .then(json => json.data.children);
   });
 
   afterEach(() => {
@@ -19,10 +22,10 @@ describe('FilterResults', () => {
   it('renders a filtered value without crashing', () => {
     render(
       <FilterResults
-        value={'ja'}
+        value={'pics'}
         data={data}
         renderResults={results =>
-          results.map((el, i) => <span key={i}>{el.company.name}</span>)
+          results.map(({ data }, i) => <span key={i}>{data.ups}</span>)
         }
       />,
       node,
@@ -34,9 +37,12 @@ describe('FilterResults', () => {
 }),
   describe('AllResults', () => {
     let node;
-
-    beforeEach(() => {
+    let data;
+    beforeEach(async () => {
       node = document.createElement('div');
+      data = await fetch('https://www.reddit.com/r/pics.json')
+        .then(response => response.json())
+        .then(json => json.data.children);
     });
 
     afterEach(() => {
@@ -49,7 +55,7 @@ describe('FilterResults', () => {
           value={''}
           data={data}
           renderResults={results =>
-            results.map((el, i) => <span key={i}>{el.company.name}</span>)
+            results.map(({ data }, i) => <span key={i}>{data.ups}</span>)
           }
         />,
         node,
