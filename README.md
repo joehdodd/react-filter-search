@@ -34,7 +34,7 @@ In this way, React Filter Search is unopinionated about how you store your data 
 
 
 
-```
+```javascript
 //
 /*-Other Imports-*/
 //
