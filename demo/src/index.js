@@ -12,9 +12,9 @@ class Demo extends Component {
     };
   }
   componentWillMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://www.reddit.com/r/pics.json')
       .then(response => response.json())
-      .then(json => this.setState({ data: json }));
+      .then(json => this.setState({ data: json.data.children }));
   }
   handleChange = event => {
     const { value } = event.target;
@@ -37,23 +37,21 @@ class Demo extends Component {
             value={value}
             data={data}
             renderResults={results => (
-              <div
-                style={{ marginTop: '16px' }}
-              >
-                {results.map(el => (
+              <div style={{ marginTop: '16px' }}>
+                {results.map(({ data }, i) => (
                   <div
+                    key={i}
                     style={{
                       backgroundColor: '#f7f7f7',
                       marginBottom: '8px',
                       borderRadius: '4px',
                       padding: '16px',
-                      maxWidth: '250px',
-                      maxHeight: '150px',
-                      alignSelf: 'start'
+                      alignSelf: 'start',
+                      width: '100%'
                     }}
                   >
-                    <span>{el.name}</span>
-                    <span>{el.email}</span>
+                    <span>{data.title}</span>
+                    <img src={data.thumbnail} alt={data.title}/>
                   </div>
                 ))}
               </div>
