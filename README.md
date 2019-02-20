@@ -94,3 +94,8 @@ To render your data, simply use .map() to render to the view--the data retains i
 | `value`          | `string`             | `true`   |    
 | `data`           | `array` of `object`s | `true`   |
 | `reunderResults` | `func`               | `true`   |
+
+
+## Contributions
+
+Read [`CONTRIBUTING.md`](https://github.com/joehdodd/react-filter-search/blob/master/CONTRIBUTING.md) and join the fun! 🎉
