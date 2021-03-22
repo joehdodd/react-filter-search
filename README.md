@@ -85,6 +85,19 @@ The magic 🧙happens in `renderResults`, which returns an array of objects. You
 
 Filtering logic will iterate over any level of nesting in your data structure. Which means a good suggestion for this is something like user data or todo items that aren't heavily nested at many levels.
 
+If you wish to exclude a field from filtering logic, simply provide it as a prop `omit`
+```javascript
+// if each object is of the form
+var obj = {a: 'a', b: 'b', c: {b: 'b', d: {b: 'b', f: 'f'}}};
+<SearchResults
+  ...
+  omit={['c.d.b', 'f']}
+  ...
+/>
+// your objects will be filtered only with these fields => { a: 'a', b: 'b', c: { b: 'b', d: {} } }
+// but you can still render other values
+```
+
 To render your data, simply use .map() to render to the view--the data retains in the same structure. Return some inline JSX, or feed each element into a stateless React component that renders some UI.
 
 ## `props`
@@ -94,6 +107,7 @@ To render your data, simply use .map() to render to the view--the data retains i
 | `value`          | `string`             | `true`   |    
 | `data`           | `array` of `object`s | `true`   |
 | `reunderResults` | `func`               | `true`   |
+| `omit`           | `array` of `string`s | `false`  |
 
 
 ## Contributions

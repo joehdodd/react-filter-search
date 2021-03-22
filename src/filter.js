@@ -1,3 +1,5 @@
+import omitDeep from 'omit-deep';
+
 function strOp(str) {
   return str
     .toString()
@@ -5,8 +7,8 @@ function strOp(str) {
     .toLowerCase();
 }
 
-function objectValues(value) {
-  return Object.values(value).reduce((string, val) => {
+function objectValues(value, omit) {
+  return Object.values(omitDeep(JSON.parse(JSON.stringify(value)), omit)).reduce((string, val) => {
     const test = val !== null && val !== undefined;
     return (
       string +
@@ -17,8 +19,8 @@ function objectValues(value) {
   }, '');
 }
 
-export function filter(val, data) {
+export function filter(val, data, omit) {
   return data.filter(el => {
-    return !!val.length ? objectValues(el).includes(strOp(val)) : true;
+    return !!val.length ? objectValues(el, omit).includes(strOp(val)) : true;
   });
 }
