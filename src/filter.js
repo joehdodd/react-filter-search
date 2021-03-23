@@ -8,7 +8,7 @@ function strOp(str) {
 }
 
 function objectValues(value, pickAttr) {
-  return (!!pickAttr ? Object.values(pick(value, pickAttr)) : Object.values(value)).reduce((string, val) => {
+  return (pickAttr ? Object.values(pick(value, pickAttr)) : Object.values(value)).reduce((string, val) => {
     const test = val !== null && val !== undefined;
     return (
       string +

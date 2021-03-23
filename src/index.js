@@ -4,7 +4,7 @@ import { filter } from './filter';
 
 export default class FilterResults extends Component {
   render() {
-    const { value, data, pick = [] } = this.props;
+    const { value, data, pick } = this.props;
     return this.props.renderResults(filter(value, data, pick));
   }
 }
