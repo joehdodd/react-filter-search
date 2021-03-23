@@ -85,6 +85,19 @@ The magic 🧙happens in `renderResults`, which returns an array of objects. You
 
 Filtering logic will iterate over any level of nesting in your data structure. Which means a good suggestion for this is something like user data or todo items that aren't heavily nested at many levels.
 
+If you wish to filter only using certain attributes then you can use the optional `pick` prop.
+```javascript
+// if each object is of the form
+var obj = { name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", company: {"name": "Romaguera-Crona"} }
+<SearchResults
+  ...
+  pick={['username', 'company.name']}
+  ...
+/>
+// your objects will be filtered only with the name and company.name fields
+// but you can still render other values like username and email
+```
+
 To render your data, simply use .map() to render to the view--the data retains in the same structure. Return some inline JSX, or feed each element into a stateless React component that renders some UI.
 
 ## `props`
@@ -94,7 +107,7 @@ To render your data, simply use .map() to render to the view--the data retains i
 | `value`          | `string`             | `true`   |    
 | `data`           | `array` of `object`s | `true`   |
 | `reunderResults` | `func`               | `true`   |
-
+| `pick`           | `array` of `string`s | `false`  |
 
 ## Contributions
 
