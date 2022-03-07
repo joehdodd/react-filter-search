@@ -106,7 +106,7 @@ To render your data, simply use .map() to render to the view--the data retains i
 | ---------------- |----------------------| ---------|
 | `value`          | `string`             | `true`   |    
 | `data`           | `array` of `object`s | `true`   |
-| `reunderResults` | `func`               | `true`   |
+| `renderResults`  | `func`               | `true`   |
 | `pick`           | `array` of `string`s | `false`  |
 
 ## Contributions
