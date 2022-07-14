@@ -23,7 +23,7 @@
     "pick-deep": "^1.0.0"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": ">=16"
   },
   "devDependencies": {
     "nwb": "0.23.x",
